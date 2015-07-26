@@ -26,7 +26,7 @@ object Birthday {
         case Some(cntPeople) =>
           val notBday : Double = 0.9972602739726027
           var likelyhood: Double = 1
-          0 to cntPeople map ( likelyhood *= Math.pow(notBday,_))
+          0 to (cntPeople -1) map ( likelyhood *= Math.pow(notBday,_))
           1 - likelyhood
         case None => 0.0
 
