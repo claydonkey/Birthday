@@ -39,6 +39,6 @@ object Birthday {
   def main(args: Array[String]): Unit = {
 
     println("Enter number of persons: (Type 'x' to exit)")
-    stdin.getLines drop (0) map (calcProb(_)) foreach (r => println("There is a " + r * 10 + "% chance there are at least 2 birthdays on the same day"))
+    stdin.getLines drop (0) map (calcProb(_)) foreach (r => println("There is a " + r * 100 + "% chance there are at least 2 birthdays on the same day"))
   }
 }

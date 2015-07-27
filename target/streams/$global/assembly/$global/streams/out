@@ -4,7 +4,7 @@
 [0m[[0minfo[0m] [0mMerging files...[0m
 [0m[[33mwarn[0m] [0mMerging 'META-INF\MANIFEST.MF' with strategy 'discard'[0m
 [0m[[33mwarn[0m] [0mStrategy 'discard' was applied to a file[0m
-[0m[[0minfo[0m] [0mSHA-1: ecb8bec832fc4d881723a2e43cc830a6860756cf[0m
+[0m[[0minfo[0m] [0mSHA-1: d0fdd1deef3ebf851c019fa1f06b6cbb03d35c8d[0m
 [0m[[0minfo[0m] [0mPackaging D:\Users\anthony\Documents\Minnow\Source\Scala\Birthday\target\scala-2.11\Birthday-assembly-0.1.0.jar ...[0m
 [0m[[0mdebug[0m] [0mInput file mappings:[0m
 [0m[[0mdebug[0m] [0m	Birthday$$anonfun$calcProb$1.class[0m
