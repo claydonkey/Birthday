@@ -24,7 +24,7 @@ object Birthday {
     {
       cntPeople match {
         case Some(cntPeople) =>
-          val notBday : Double = 0.9972602739726027
+          val notBday : Double = (364.0 / 365.0)
           var likelyhood: Double = 1
           0 to (cntPeople -1) map ( likelyhood *= Math.pow(notBday,_))
           1 - likelyhood
@@ -34,6 +34,6 @@ object Birthday {
     }
 
   def main(args: Array[String]): Unit = {
-    stdin.getLines map (calcProb(_)) foreach println
+    stdin.getLines map (calcProb(_)) foreach (r=> println  ("There is a " + r * 10 +  "% chance there are at least 2 birthdays on the same day"))
   }
 }
