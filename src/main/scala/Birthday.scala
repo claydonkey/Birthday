@@ -12,6 +12,8 @@ object Birthday {
    */
 
   implicit def toInt(str: String): Option[Int] = {
+    if (str.trim == "x")
+      System.exit(0)
     try {
       Some(Integer.parseInt(str.trim))
     } catch {
@@ -24,9 +26,10 @@ object Birthday {
     {
       cntPeople match {
         case Some(cntPeople) =>
-          val notBday : Double = (364.0 / 365.0)
+
+          val notBday: Double = (364.0 / 365.0)
           var likelyhood: Double = 1
-          0 to (cntPeople -1) map ( likelyhood *= Math.pow(notBday,_))
+          0 to (cntPeople - 1) map (likelyhood *= Math.pow(notBday, _))
           1 - likelyhood
         case None => 0.0
 
@@ -34,6 +37,8 @@ object Birthday {
     }
 
   def main(args: Array[String]): Unit = {
-    stdin.getLines map (calcProb(_)) foreach (r=> println  ("There is a " + r * 10 +  "% chance there are at least 2 birthdays on the same day"))
+
+    println("Enter number of persons: (Type 'x' to exit)")
+    stdin.getLines drop (0) map (calcProb(_)) foreach (r => println("There is a " + r * 10 + "% chance there are at least 2 birthdays on the same day"))
   }
 }
