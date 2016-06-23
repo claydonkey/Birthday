@@ -22,17 +22,10 @@ object Birthday {
 
   }
 
-  def calcProb(cntPeople: Option[Int]): Double =
-    {
-      cntPeople match {
-        case Some(cntPeople) =>
-
-          val notBday: Double = (364.0 / 365.0)
-          var likelyhood: Double = 1
-          0 to (cntPeople - 1) map (likelyhood *= Math.pow(notBday, _))
-          1 - likelyhood
-        case None => 0.0
-
+  def calcProb(cntPeople: Option[Int]): Double = {
+       cntPeople match {
+       case Some(cntPeople) =>  1 - (0.0 until cntPeople by 1.0).foldLeft(1.0) ((i,j) => (365 - j) * i ) /math.pow(365.0 ,10.0)
+         case None => 0.0
       }
     }
 
