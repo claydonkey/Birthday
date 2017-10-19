@@ -1,4 +1,4 @@
-# The Birthday problem
+# The Birthday Problem
 ### Expressed in SCALA
 
 ```
