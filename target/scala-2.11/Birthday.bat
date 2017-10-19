@@ -1,1 +1,0 @@
-java -jar Birthday-assembly-0.1.0.jar
