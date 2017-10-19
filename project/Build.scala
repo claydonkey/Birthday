@@ -3,9 +3,7 @@ import sbt.Keys._
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
-/**
- * Please use plain text editor to edit this file instead of NetBeans (To be supported)
- */
+ 
 object Build extends sbt.Build {
 
   lazy val root = Project("Birthday", file("."))
@@ -15,7 +13,7 @@ object Build extends sbt.Build {
   lazy val basicSettings = Seq(
     organization := "your.organization",
     version := "0.1.0",
-    scalaVersion := "2.11.4",
+    scalaVersion := "2.12.0",
     scalacOptions ++= Seq("-unchecked", "-deprecation"),
     javacOptions ++= Seq("-source", "1.6", "-target", "1.6"),
     resolvers ++= Seq(
