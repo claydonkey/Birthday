@@ -11,8 +11,8 @@ object Build extends sbt.Build {
     .settings(libraryDependencies ++= Dependencies.basic)
 
   lazy val basicSettings = Seq(
-    organization := "your.organization",
-    version := "0.1.0",
+    organization := "com.claydonkey",
+    version := "1.0.1",
     scalaVersion := "2.12.0",
     scalacOptions ++= Seq("-unchecked", "-deprecation"),
     javacOptions ++= Seq("-source", "1.6", "-target", "1.6"),
