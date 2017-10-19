@@ -28,47 +28,37 @@
 import io.Source._
 import scala.collection._
 import scala.language.implicitConversions
+import com.claydonkey.Helper._
 
 package com.claydonkey {
 
   object Birthday extends App {
 
-    val nBD: Double = (364.0 / 365.0)
-    def statement(i: Double): String = "There is a " + i * 100 + "% chance there are at least 2 birthdays on the same day"
+    val p: Double = (364.0 / 365.0)
+    def resultstmnt(i: Double): String = "There is a " + i * 100 + "% chance there are at least 2 birthdays on the same day"
+    val interog = "Enter number of people: (Type 'alphanumeric' to exit)"
 
-    implicit def IMPL_String_OptionInt(mstr: String): Option[Int] = {
-      if (!(mstr.forall(Character.isDigit _))) System.exit(0)
-      try {
-        Some(Integer.parseInt(mstr.trim))
-      } catch {
-        case e: NumberFormatException => None
-      }
-    }
-
-    implicit def IMPL_String_Int(mstr: String): Int = {
-      if (!(mstr.forall(Character.isDigit _))) System.exit(0)
-      Integer.parseInt(mstr.trim)
-    }
-
+    /* naive attempt */
     def cp2(c: Option[Int]): Double = {
       c match {
         case Some(c) =>
           var likelyhood: Double = 1
-          0 until c map (likelyhood *= Math.pow(nBD, _))
+          0 until c map (likelyhood *= Math.pow(p, _))
           1 - likelyhood
         case None => 0.0
       }
     }
 
+    /* null protected version of inline lambda below */
     def cp1(c: Option[Int]): Double = {
       c match {
-        case Some(c) => 1 - Math.pow(nBD, (0 until c).foldLeft(0)(_ + _))
+        case Some(c) => 1 - Math.pow(p, (0 until c).foldLeft(0)(_ + _))
         case None => 0.0
       }
     }
 
-    /* ((i: Int) => 1 - Math.pow(364.0/365, (0 until i).fold(0)(_ + _)))(10) */
-    println("Enter number of people: (Type 'alphanumeric' to exit)")
-    stdin.getLines map ((i) => (cp1(i), cp2(i), 1 - Math.pow(nBD, (0 until i).fold(0)(_ + _)))) foreach println _
+    /* In one line : ((i: Int) => 1 - Math.pow(364.0/365, (0 until i).fold(0)(_ + _)))(10) */
+    println(interog)
+    stdin.getLines map ((i) => (cp1(i), cp2(i), 1 - Math.pow(p, (0 until i).fold(0)(_ + _))).toString + "\n" + interog) foreach println
   }
 }

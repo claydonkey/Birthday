@@ -10,7 +10,7 @@ organization := "com.claydonkey"
 
 version := "1.0.1"
 
-scalaVersion := "2.12.0"
+scalaVersion := "2.10.6"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
@@ -26,7 +26,6 @@ mainClass in (Compile, run) := Some("com.claydonkey.Birthday.main")
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
 scalariformSettings
-
 
 ScalariformKeys.preferences := ScalariformKeys.preferences.value
 .setPreference(AlignSingleLineCaseStatements, true)
